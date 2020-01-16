@@ -249,22 +249,8 @@ a.article:hover {
   #sidebar {
     margin-left: 0;
   }
-  #sidebarCollapse {
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    background: #7386d5;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
 
-  #sidebarCollapse:hover {
+  #sidebar .sidebar-header:active {
     background: #fff;
     color: #7386d5;
   }
