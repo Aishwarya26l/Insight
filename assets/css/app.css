@@ -55,17 +55,19 @@ span {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-.wrapper {
-  display: flex;
-  align-items: stretch;
+.container-fluid {
+  padding: 0;
+}
+
+.sidebar-col {
+  padding-right: 0;
 }
 
 #sidebar {
-  min-width: 250px;
-  max-width: 250px;
-  background: #7386d5;
+  background: #1565c0;
   color: #fff;
   transition: all 0.3s;
+  height: 100%;
 }
 
 #sidebar.active {
@@ -114,8 +116,8 @@ span {
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
-  background: #6d7fcc;
+  padding: 25px;
+  background: #1254a1;
 }
 
 #sidebar .sidebar-header strong {
@@ -124,7 +126,7 @@ span {
 }
 
 #sidebar ul.components {
-  padding: 20px 0;
+  padding: 20px 20px;
   border-bottom: 1px solid #47748b;
 }
 
@@ -135,7 +137,7 @@ span {
 }
 
 #sidebar ul li a:hover {
-  color: #7386d5;
+  color: #1565c0;
   background: #fff;
 }
 
@@ -146,7 +148,15 @@ span {
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
   color: #fff;
-  background: #6d7fcc;
+  background: #1254a1;
+}
+#sidebar {
+  margin-left: 0;
+}
+
+#sidebar .sidebar-header:active {
+  background: #fff;
+  color: #1565c0;
 }
 
 a[data-toggle="collapse"] {
@@ -164,7 +174,7 @@ a[data-toggle="collapse"] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #6d7fcc;
+  background: #1254a1;
 }
 
 ul.CTAs {
@@ -179,14 +189,14 @@ ul.CTAs a {
   margin-bottom: 5px;
 }
 
-a.download {
+a.signup {
   background: #fff;
-  color: #7386d5;
+  color: #1565c0;
 }
 
 a.article,
 a.article:hover {
-  background: #6d7fcc !important;
+  background: #1254a1 !important;
   color: #fff !important;
 }
 
@@ -199,8 +209,30 @@ a.article:hover {
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
+  background: #eceff1;
 }
-
+.card {
+  margin-bottom: 20px;
+}
+.content-col {
+  padding-left: 0;
+}
+.card-title {
+  color: #1565c0;
+}
+.dashboard-selection {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-bottom: 10px;
+}
+.input-group-text {
+  color: #1565c0;
+  background: #ffffff;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #1565c0;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -245,13 +277,5 @@ a.article:hover {
   }
   #sidebar ul li a i {
     font-size: 1.3em;
-  }
-  #sidebar {
-    margin-left: 0;
-  }
-
-  #sidebar .sidebar-header:active {
-    background: #fff;
-    color: #7386d5;
   }
 }

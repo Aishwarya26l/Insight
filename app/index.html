@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../assets/images/favicon.ico"
+    />
+    <title>Insight</title>
 
     <!-- Bootstrap CSS CDN -->
     <link
@@ -33,167 +37,140 @@
   </head>
 
   <body>
-    <div class="wrapper">
-      <!-- Sidebar  -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 sidebar-col">
+          <!-- Sidebar  -->
 
-      <nav id="sidebar">
-        <div class="sticky-top">
-          <div class="sidebar-header" id="sidebarCollapse">
-            <h3><i class="fas fa-university"></i>&nbsp;Insight</h3>
-            <strong><i class="fas fa-university"></i>Ins</strong>
-          </div>
+          <nav id="sidebar">
+            <div class="sticky-top">
+              <div class="sidebar-header" id="sidebarCollapse">
+                <h3><i class="fas fa-university"></i>&nbsp;Insight</h3>
+                <strong><i class="fas fa-university"></i>Ins</strong>
+              </div>
 
-          <ul class="list-unstyled components">
-            <li class="active">
-              <a
-                href="#homeSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                class="dropdown-toggle"
-              >
-                <i class="fas fa-home"></i>
-                Home
-              </a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
+              <ul class="list-unstyled components">
+                <!-- <li class="active">
+                <a
+                  href="#homeSubmenu"
+                  data-toggle="collapse"
+                  aria-expanded="false"
+                  class="dropdown-toggle"
+                >
+                  <i class="fas fa-home"></i>
+                  Home
+                </a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                    <a href="#">Home 1</a>
+                  </li>
+                  <li>
+                    <a href="#">Home 2</a>
+                  </li>
+                  <li>
+                    <a href="#">Home 3</a>
+                  </li>
+                </ul>
+              </li> -->
                 <li>
-                  <a href="#">Home 1</a>
+                  <a href="#"> <i class="fas fa-home"></i> Home </a>
                 </li>
                 <li>
-                  <a href="#">Home 2</a>
+                  <a href="#">
+                    <i class="fas fa-chart-bar"></i> My Dashboard
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Home 3</a>
+                  <a href="#"> <i class="fas fa-paper-plane"></i> Contact </a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fas fa-briefcase"></i>
-                About
-              </a>
-              <a
-                href="#pageSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                class="dropdown-toggle"
-              >
-                <i class="fas fa-copy"></i>
-                Pages
-              </a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
+
+              <ul class="list-unstyled CTAs">
                 <li>
-                  <a href="#">Page 1</a>
-                </li>
-                <li>
-                  <a href="#">Page 2</a>
-                </li>
-                <li>
-                  <a href="#">Page 3</a>
+                  <a href="" class="signup">Sign up / Log in</a>
                 </li>
               </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fas fa-image"></i>
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fas fa-question"></i>
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fas fa-paper-plane"></i>
-                Contact
-              </a>
-            </li>
-          </ul>
-
-          <ul class="list-unstyled CTAs">
-            <li>
-              <a
-                href="https://bootstrapious.com/tutorial/files/sidebar.zip"
-                class="download"
-                >Download source</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://bootstrapious.com/p/bootstrap-sidebar"
-                class="article"
-                >Back to article</a
-              >
-            </li>
-          </ul>
+            </div>
+          </nav>
         </div>
-      </nav>
-
-      <!-- Page Content  -->
-      <div id="content">
-        <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <div class="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <div class="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <div class="line"></div>
-
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div class="col-sm-10 content-col">
+          <!-- Page Content  -->
+          <div id="content">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <i class="fas fa-university"></i> Insight : A venture by
+                      ALSET
+                    </h5>
+                    <p class="card-text">
+                      Insight displays historic data about NUS curriculum to
+                      guide NUS students, instructors, and staff in
+                      decision-making.
+                      <br />
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Adipiscing diam donec adipiscing tristique risus
+                      nec. Aliquet eget sit amet tellus cras.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Search for Courses, Instructors, and Majors.
+                    </h5>
+                    <p class="card-text">
+                      Select which category you would like to search and enter
+                      course numbers, title, or keywords.
+                    </p>
+                    <div class="container-fluid">
+                      <div class="dashboard-selection">
+                        <ul class="nav nav-pills nav-justified">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="course" href="#"
+                              >Courses</a
+                            >
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="instructor" href="#"
+                              >Instructors</a
+                            >
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="major" href="#">Majors</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="dashboard-selection">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"
+                              ><i class="fas fa-search"></i
+                            ></span>
+                          </div>
+                          <input
+                            id="search-criteria"
+                            type="text"
+                            class="form-control"
+                            placeholder="Search by course"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
