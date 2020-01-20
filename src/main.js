@@ -4,6 +4,9 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 
+// Vue Simple Suggest
+import VueSimpleSuggest from "vue-simple-suggest/lib";
+
 // Bootstrap
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
@@ -30,6 +33,7 @@ Vue.use(IconsPlugin);
 library.add(faHome, faUniversity, faChartBar, faPaperPlane, faUser, faSearch);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
+Vue.component("vue-simple-suggest", VueSimpleSuggest);
 
 Vue.config.productionTip = false;
 

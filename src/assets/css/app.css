@@ -70,6 +70,11 @@ span {
 
 .container-fluid {
   padding: 0;
+  height: 100%;
+}
+
+.row {
+  height: 100%;
 }
 
 .sidebar-col {
@@ -219,6 +224,9 @@ a.other_routes {
   transition: all 0.3s;
   background: #eceff1;
 }
+.category-selection {
+  margin-top: 20px;
+}
 .card {
   margin-bottom: 20px;
 }
@@ -251,11 +259,22 @@ a.other_routes {
 .searchButton {
   color: #1565c0;
   border: #999 1px solid;
+  margin: 0 auto;
 }
 
 .searchButton:hover {
   color: #fff;
   background: #1565c0;
+}
+
+.searchBar {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+}
+
+.vue-simple-suggest {
+  width: 100%;
 }
 
 /* ---------------------------------------------------

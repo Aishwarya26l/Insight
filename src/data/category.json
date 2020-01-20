@@ -1,0 +1,22 @@
+{
+  "course": [
+    {
+      "id": "CS101",
+      "name": "Basics of programming",
+      "instructor": [{ "id": "S1" }]
+    },
+    {
+      "id": "CS102",
+      "name": "Python",
+      "instructor": [{ "id": "S1" }]
+    }
+  ],
+  "instructor": [
+    { "id": "S1", "name": "ABC" },
+    {
+      "id": "S2",
+      "name": "EFG"
+    }
+  ],
+  "major": [{ "id": "M1", "name": "Major 1" }]
+}
