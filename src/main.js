@@ -4,6 +4,10 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 
+// Highcharts charting library
+import HighchartsVue from "highcharts-vue";
+import { Chart } from "highcharts-vue";
+
 // Vue Simple Suggest
 import VueSimpleSuggest from "vue-simple-suggest/lib";
 
@@ -30,10 +34,13 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
+Vue.use(HighchartsVue);
+
 library.add(faHome, faUniversity, faChartBar, faPaperPlane, faUser, faSearch);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.component("vue-simple-suggest", VueSimpleSuggest);
+Vue.component("highcharts", Chart);
 
 Vue.config.productionTip = false;
 

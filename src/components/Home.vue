@@ -29,15 +29,18 @@
                 <b-nav-item
                   @click="setActive('course')"
                   :class="{ active: isActive('course') }"
-                >Courses</b-nav-item>&nbsp;
+                  >Courses</b-nav-item
+                >&nbsp;
                 <b-nav-item
                   @click="setActive('instructor')"
                   :class="{ active: isActive('instructor') }"
-                >Instructors</b-nav-item>&nbsp;
+                  >Instructors</b-nav-item
+                >&nbsp;
                 <b-nav-item
                   @click="setActive('major')"
                   :class="{ active: isActive('major') }"
-                >Majors</b-nav-item>
+                  >Majors</b-nav-item
+                >
               </b-nav>
             </div>
             <div class="dashboard-selection">
@@ -65,10 +68,26 @@
             </div>
           </b-container>
         </div>
-        <div
-          class="chartDisplay"
-          :class="{ active: this.chartActive }"
-        >Selected {{typeof this.selectedItem}} - {{this.selectedItem}}</div>
+        <div class="chartDisplay" :class="{ active: this.chartActive }">
+          <b-container fluid>
+            <b-row>
+              Selected {{ typeof this.selectedItem }} -
+              {{ this.selectedItem }}
+            </b-row>
+            <br />
+            <b-row>
+              <b-col
+                ><b-card
+                  ><highcharts :options="barChartOptions"></highcharts></b-card
+              ></b-col>
+              <b-col
+                ><b-card
+                  ><highcharts :options="pieChartOptions"></highcharts
+                ></b-card>
+              </b-col>
+            </b-row>
+          </b-container>
+        </div>
       </b-card-text>
     </b-card>
   </div>
@@ -85,7 +104,29 @@ export default {
       searchText: "Search by course",
       selectedText: null,
       selectedItem: null,
-      suggestionList: []
+      suggestionList: [],
+      barChartOptions: {
+        chart: {
+          type: "bar"
+        },
+        title: { text: "Sample bar chart" },
+        series: [
+          {
+            data: [1, 2, 3] // sample data
+          }
+        ]
+      },
+      pieChartOptions: {
+        chart: {
+          type: "pie"
+        },
+        title: { text: "Sample pie chart" },
+        series: [
+          {
+            data: [1, 2, 3] // sample data
+          }
+        ]
+      }
     };
   },
   methods: {
