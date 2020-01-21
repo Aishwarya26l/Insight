@@ -70,22 +70,12 @@
         </div>
         <div class="chartDisplay" :class="{ active: this.chartActive }">
           <b-container fluid>
-            <b-row>
-              Selected {{ typeof this.selectedItem }} -
-              {{ this.selectedItem }}
-            </b-row>
-            <br />
-            <b-row>
-              <b-col
-                ><b-card
-                  ><highcharts :options="barChartOptions"></highcharts></b-card
-              ></b-col>
-              <b-col
-                ><b-card
-                  ><highcharts :options="pieChartOptions"></highcharts
-                ></b-card>
-              </b-col>
-            </b-row>
+            <component
+              v-bind:is="currentView"
+              v-bind:selectedItem="selectedItem"
+            >
+              <!-- component changes when vm.currentView changes! -->
+            </component>
           </b-container>
         </div>
       </b-card-text>
@@ -94,39 +84,28 @@
 </template>
 
 <script>
+import CourseCharts from "./CourseCharts";
+import InstructorCharts from "./InstructorCharts";
+import MajorCharts from "./MajorCharts";
+
 import category from "../data/category.json";
+
 export default {
+  name: "Home",
+  components: {
+    course: CourseCharts,
+    instructor: InstructorCharts,
+    major: MajorCharts
+  },
   data() {
     return {
       activeItem: "course",
+      currentView: null,
       chartActive: false,
-      name: "Home",
       searchText: "Search by course",
       selectedText: null,
       selectedItem: null,
-      suggestionList: [],
-      barChartOptions: {
-        chart: {
-          type: "bar"
-        },
-        title: { text: "Sample bar chart" },
-        series: [
-          {
-            data: [1, 2, 3] // sample data
-          }
-        ]
-      },
-      pieChartOptions: {
-        chart: {
-          type: "pie"
-        },
-        title: { text: "Sample pie chart" },
-        series: [
-          {
-            data: [1, 2, 3] // sample data
-          }
-        ]
-      }
+      suggestionList: []
     };
   },
   methods: {
@@ -161,6 +140,7 @@ export default {
     searchSelected: function() {
       if (this.selectedItem) {
         this.chartActive = true;
+        this.currentView = this.activeItem;
       } else {
         this.chartActive = false;
       }
