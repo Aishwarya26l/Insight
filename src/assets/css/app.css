@@ -277,6 +277,12 @@ a.other_routes {
   width: 100%;
 }
 
+.chartDisplay {
+  display: none;
+}
+.chartDisplay.active {
+  display: block;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */

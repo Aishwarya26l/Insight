@@ -29,43 +29,46 @@
                 <b-nav-item
                   @click="setActive('course')"
                   :class="{ active: isActive('course') }"
-                  >Courses</b-nav-item
-                >&nbsp;
+                >Courses</b-nav-item>&nbsp;
                 <b-nav-item
                   @click="setActive('instructor')"
                   :class="{ active: isActive('instructor') }"
-                  >Instructors</b-nav-item
-                >&nbsp;
+                >Instructors</b-nav-item>&nbsp;
                 <b-nav-item
                   @click="setActive('major')"
                   :class="{ active: isActive('major') }"
-                  >Majors</b-nav-item
-                >
+                >Majors</b-nav-item>
               </b-nav>
             </div>
             <div class="dashboard-selection">
-              <b-row class="searchBar"
-                ><vue-simple-suggest
-                  v-model="chosen"
+              <b-row class="searchBar">
+                <vue-simple-suggest
+                  v-model="selectedText"
+                  display-attribute="displayName"
                   :placeholder="searchText"
                   :list="simpleSuggestionList"
+                  @suggestion-click="onSuggestClick"
                   :filter-by-query="true"
-                >
-                </vue-simple-suggest
-              ></b-row>
-              <b-row class="searchBar"
-                ><b-button
+                ></vue-simple-suggest>
+              </b-row>
+              <b-row class="searchBar">
+                <b-button
                   size="lg"
                   text="Button"
                   variant="outline-secondary"
                   class="searchButton"
+                  @click="searchSelected()"
                 >
-                  <font-awesome-icon icon="search" class="icon" /> Search
-                </b-button></b-row
-              >
+                  <font-awesome-icon icon="search" class="icon" />Search
+                </b-button>
+              </b-row>
             </div>
           </b-container>
         </div>
+        <div
+          class="chartDisplay"
+          :class="{ active: this.chartActive }"
+        >Selected {{typeof this.selectedItem}} - {{this.selectedItem}}</div>
       </b-card-text>
     </b-card>
   </div>
@@ -77,15 +80,19 @@ export default {
   data() {
     return {
       activeItem: "course",
+      chartActive: false,
       name: "Home",
       searchText: "Search by course",
-      chosen: "",
+      selectedText: null,
+      selectedItem: null,
       suggestionList: []
     };
   },
   methods: {
     resetSuggestion: function() {
-      this.chosen = "";
+      this.selectedText = null;
+      this.selectedItem = null;
+      this.chartActive = false;
       this.suggestionList = [];
     },
     isActive: function(menuItem) {
@@ -100,30 +107,22 @@ export default {
       this.searchText = "Search by " + this.activeItem;
     },
     simpleSuggestionList: function() {
-      // switch (this.activeItem) {
-      //   case "course":
-      //     this.suggestionList = category.course.map(
-      //       element => element.id + " : " + element.name
-      //     );
-      //     break;
-      //   case "instructor":
-      //     this.suggestionList = category.instructor.map(
-      //       element => element.id + " : " + element.name
-      //     );
-      //     break;
-      //   case "major":
-      //     this.suggestionList = category.major.map(
-      //       element => element.id + " : " + element.name
-      //     );
-      //     break;
-      //   default:
-      //     break;
-      // }
-
-      this.suggestionList = category[this.activeItem].map(
-        element => element.id + " : " + element.name
-      );
+      category[this.activeItem].forEach(item => {
+        item["displayName"] = item.id + " : " + item.name;
+        if (this.suggestionList.indexOf(item) === -1)
+          this.suggestionList.push(item);
+      });
       return this.suggestionList;
+    },
+    onSuggestClick: function(suggest) {
+      this.selectedItem = suggest;
+    },
+    searchSelected: function() {
+      if (this.selectedItem) {
+        this.chartActive = true;
+      } else {
+        this.chartActive = false;
+      }
     }
   }
 };
