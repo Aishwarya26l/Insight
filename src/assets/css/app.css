@@ -283,6 +283,12 @@ a.other_routes {
 .chartDisplay.active {
   display: block;
 }
+.categoryHeader {
+  color: #1565c0;
+}
+.chartLayout {
+  margin-top: 10px;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */

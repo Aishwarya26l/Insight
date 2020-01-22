@@ -1,0 +1,64 @@
+{
+  "course": {
+    "CS101": {
+      "gender": [
+        {
+          "name": "M",
+          "y": 10
+        },
+        {
+          "name": "F",
+          "y": 60
+        }
+      ],
+      "score": {
+        "category": [
+          "AY1510",
+          "AY1520",
+          "AY1610",
+          "AY1620",
+          "AY1710",
+          "AY1720",
+          "AY1810",
+          "AY1820",
+          "AY1910",
+          "AY1920"
+        ],
+        "value": [
+          {
+            "name": "Highest score",
+            "data": [79, 75, 80, 85, 88, 91, 78, 80, 80, 77]
+          },
+          {
+            "name": "Average score",
+            "data": [60, 55, 61, 70, 60, 60, 56, 70, 70, 55]
+          },
+          {
+            "name": "Lowest score",
+            "data": [30, 40, 30, 30, 20, 40, 26, 34, 42, 33]
+          }
+        ]
+      }
+    },
+    "CS102": {
+      "gender": [
+        {
+          "name": "M",
+          "y": 50
+        },
+        {
+          "name": "F",
+          "y": 10
+        }
+      ]
+    }
+  },
+  "instructor": [
+    { "id": "S1", "name": "ABC" },
+    {
+      "id": "S2",
+      "name": "EFG"
+    }
+  ],
+  "major": [{ "id": "M1", "name": "Major 1" }]
+}
