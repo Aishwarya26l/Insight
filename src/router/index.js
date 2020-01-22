@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Dashboard from "@/components/Dashboard";
-import Home from "@/components/Home";
-import Login from "@/components/Login";
-import Contact from "@/components/Contact";
+import Dashboard from "@/pages/Dashboard";
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import Contact from "@/pages/Contact";
 
 Vue.use(Router);
 

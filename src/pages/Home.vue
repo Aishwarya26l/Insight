@@ -84,11 +84,11 @@
 </template>
 
 <script>
-import CourseCharts from "./CourseCharts";
-import InstructorCharts from "./InstructorCharts";
-import MajorCharts from "./MajorCharts";
+import CourseCharts from "@/components/CourseCharts";
+import InstructorCharts from "@/components/InstructorCharts";
+import MajorCharts from "@/components/MajorCharts";
 
-import category from "../data/category.json";
+import category from "@/data/category.json";
 
 export default {
   name: "Home",
