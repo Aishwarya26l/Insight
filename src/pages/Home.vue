@@ -6,12 +6,17 @@
         by ALSET
       </b-card-title>
       <b-card-text>
-        Insight displays historic data about NUS curriculum to guide NUS
-        students, instructors, and staff in decision-making.
-        <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing
-        diam donec adipiscing tristique risus nec. Aliquet eget sit amet tellus
-        cras.
+        <p>
+          Insight displays historic data about NUS curriculum to guide NUS
+          students, instructors, and staff in decision-making.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing
+          diam donec adipiscing tristique risus nec. Aliquet eget sit amet
+          tellus cras.
+        </p>
       </b-card-text>
     </b-card>
     <b-card>
@@ -20,7 +25,7 @@
         Instructors, and Majors.
       </b-card-title>
       <b-card-text>
-        Select which category you would like to search and enter course numbers,
+        Select a category you would like to search and enter course number,
         title, or keywords.
         <div class="category-selection">
           <b-container fluid>
