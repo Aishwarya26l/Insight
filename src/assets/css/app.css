@@ -211,6 +211,9 @@ ul.CTAs a {
 a.other_routes {
   background: #fff;
   color: #1565c0;
+  margin-right: 15px;
+  margin-left: 15px;
+  border-radius: 10px;
 }
 
 /* ---------------------------------------------------

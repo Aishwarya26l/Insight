@@ -30,7 +30,7 @@
         ></b-col>
         <b-col
           ><b-card
-            ><highcharts :options="scoreChartOptions"></highcharts
+            ><highcharts :options="popularityChartOption"></highcharts
           ></b-card>
         </b-col>
       </b-row>
@@ -67,6 +67,11 @@ export default {
           dashboardItem.courseFeedback.acadYear;
         this.feedBackChartOption.series[0].data =
           dashboardItem.courseFeedback.data;
+
+        // Update popularity chart
+        this.popularityChartOption.xAxis.categories =
+          dashboardItem.coursePopularity.acadYear;
+        this.popularityChartOption.series = dashboardItem.coursePopularity.data;
       }
     }
   },
@@ -74,6 +79,50 @@ export default {
     return {
       textToDisplay:
         "Course - " + this.selectedItem.id + " : " + this.selectedItem.name,
+      popularityChartOption: {
+        chart: {
+          type: "column",
+          height: 300,
+          events: {
+            redraw: function() {}
+          }
+        },
+        title: {
+          text: "Course popularity"
+        },
+        xAxis: {
+          categories:
+            dashboard[this.selectedItem.type][this.selectedItem.id]
+              .coursePopularity.acadYear
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: "Class strength"
+          },
+          stackLabels: {
+            enabled: true
+          }
+        },
+        tooltip: {
+          headerFormat: "<b>{point.x}</b><br/>",
+          pointFormat: "{series.name}: {point.y}<br/>Total: {point.stackTotal}"
+        },
+        plotOptions: {
+          column: {
+            stacking: "normal",
+            dataLabels: {
+              enabled: true
+            }
+          }
+        },
+        credits: {
+          enabled: false
+        },
+        series:
+          dashboard[this.selectedItem.type][this.selectedItem.id]
+            .coursePopularity.data
+      },
       feedBackChartOption: {
         chart: {
           height: 300,
