@@ -289,6 +289,21 @@ a.other_routes {
 .chartLayout {
   margin-top: 10px;
 }
+.instructorTable {
+  max-height: 260px;
+  margin-top: 5px;
+}
+.insHeaderWrapper {
+  text-align: center;
+  color: #37474f;
+}
+.insHeader {
+  display: inline-block;
+}
+.table-b-table-default {
+  color: #1565c0 !important;
+  background: #eceff1 !important;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */

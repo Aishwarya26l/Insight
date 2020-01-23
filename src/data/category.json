@@ -7,15 +7,15 @@
     },
     {
       "id": "CS102",
-      "name": "Python",
-      "instructor": [{ "id": "S1" }]
+      "name": "Object oriented programming using Python",
+      "instructor": [{ "id": "S2" }]
     }
   ],
   "instructor": [
-    { "id": "S1", "name": "ABC" },
+    { "id": "S1", "name": "John Doe" },
     {
       "id": "S2",
-      "name": "EFG"
+      "name": "Debra Ray"
     }
   ],
   "major": [{ "id": "M1", "name": "Major 1" }]

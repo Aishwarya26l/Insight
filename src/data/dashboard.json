@@ -117,12 +117,109 @@
       }
     }
   },
-  "instructor": [
-    { "id": "S1", "name": "ABC" },
-    {
-      "id": "S2",
-      "name": "EFG"
+  "instructor": {
+    "S1": {
+      "coursesHandled": {
+        "name": "Courses taught during AY1920",
+        "category": ["course code", "course name"],
+        "data": [
+          {
+            "course code": "CS101",
+            "course name": "Basics of programming",
+            "avg. course feedback": 3
+          },
+          {
+            "course code": "CAP101",
+            "course name": "Capstone project 101",
+            "avg. course feedback": 4
+          },
+          {
+            "course code": "LL102",
+            "course name": "Learning to learn better",
+            "avg. course feedback": 2.5
+          },
+          {
+            "course code": "LL103",
+            "course name": "Learning to choose better",
+            "avg. course feedback": 4
+          }
+        ]
+      },
+      "insFeedback": {
+        "acadYear": [
+          "AY1510",
+          "AY1520",
+          "AY1610",
+          "AY1620",
+          "AY1710",
+          "AY1720",
+          "AY1810",
+          "AY1820",
+          "AY1910",
+          "AY1920"
+        ],
+        "data": [
+          {
+            "name": "CS101",
+            "data": [3, 2.5, 4, 3, 3.5, 2, 3, 3.5, 4, 4.5]
+          },
+          {
+            "name": "CAP101",
+            "data": [2, 3, 4, 2.5, 4, 3, 3.5, 4, 2, 2.5]
+          },
+          {
+            "name": "LL102",
+            "data": [2, 4, 4, 2, 3, 2, 4, 4.5, 3, 4]
+          },
+          {
+            "name": "LL103",
+            "data": [4, 4.5, 3, 3, 2.5, 2.5, 3, 2, 4.5, 3.5]
+          }
+        ]
+      }
+    },
+    "S2": {
+      "coursesHandled": {
+        "name": "Courses taught during AY1920",
+        "category": ["course code", "course name"],
+        "data": [
+          {
+            "course code": "CS102",
+            "course name": "Object oriented programming using Python",
+            "avg. course feedback": 2
+          },
+          {
+            "course code": "CS123",
+            "course name": "Data Structures and Algorithms",
+            "avg. course feedback": 4
+          }
+        ]
+      },
+      "insFeedback": {
+        "acadYear": [
+          "AY1510",
+          "AY1520",
+          "AY1610",
+          "AY1620",
+          "AY1710",
+          "AY1720",
+          "AY1810",
+          "AY1820",
+          "AY1910",
+          "AY1920"
+        ],
+        "data": [
+          {
+            "name": "CS102",
+            "data": [3, 2.5, 4, 3, 3.5, 2, 3, 3.5, 4, 4.5]
+          },
+          {
+            "name": "CS123",
+            "data": [2, 3, 4, 2.5, 4, 3, 3.5, 4, 2, 2.5]
+          }
+        ]
+      }
     }
-  ],
+  },
   "major": [{ "id": "M1", "name": "Major 1" }]
 }

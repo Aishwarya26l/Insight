@@ -50,6 +50,10 @@ export default {
         // Update dashboard item
         let dashboardItem = dashboard[newSelectedItem.type][newSelectedItem.id];
 
+        // Update text to display
+        this.textToDisplay =
+          "Course - " + newSelectedItem.id + " : " + newSelectedItem.name;
+
         // Update score chart
         this.scoreChartOptions.series = dashboardItem.score.value;
         this.scoreChartOptions.xAxis.categories = dashboardItem.score.acadYear;
