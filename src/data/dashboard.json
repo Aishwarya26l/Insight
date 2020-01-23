@@ -1,18 +1,21 @@
 {
   "course": {
     "CS101": {
-      "gender": [
-        {
-          "name": "M",
-          "y": 10
-        },
-        {
-          "name": "F",
-          "y": 60
-        }
-      ],
+      "gender": {
+        "name": "Class demographic for AY1920",
+        "data": [
+          {
+            "name": "M",
+            "y": 10
+          },
+          {
+            "name": "F",
+            "y": 60
+          }
+        ]
+      },
       "score": {
-        "category": [
+        "acadYear": [
           "AY1510",
           "AY1520",
           "AY1610",
@@ -38,21 +41,39 @@
             "data": [30, 40, 30, 30, 20, 40, 26, 34, 42, 33]
           }
         ]
+      },
+      "courseFeedback": {
+        "acadYear": [
+          "AY1510",
+          "AY1520",
+          "AY1610",
+          "AY1620",
+          "AY1710",
+          "AY1720",
+          "AY1810",
+          "AY1820",
+          "AY1910",
+          "AY1920"
+        ],
+        "data": [3.5, 4.5, 3, 4, 4.5, 3, 2.8, 2, 4, 3]
       }
     },
     "CS102": {
-      "gender": [
-        {
-          "name": "M",
-          "y": 50
-        },
-        {
-          "name": "F",
-          "y": 10
-        }
-      ],
+      "gender": {
+        "name": "Class demographic for AY1920",
+        "data": [
+          {
+            "name": "M",
+            "y": 50
+          },
+          {
+            "name": "F",
+            "y": 10
+          }
+        ]
+      },
       "score": {
-        "category": [
+        "acadYear": [
           "AY1510",
           "AY1520",
           "AY1610",
@@ -78,6 +99,21 @@
             "data": [30, 40, 30, 30, 20, 40, 26, 34, 42, 33]
           }
         ]
+      },
+      "courseFeedback": {
+        "acadYear": [
+          "AY1510",
+          "AY1520",
+          "AY1610",
+          "AY1620",
+          "AY1710",
+          "AY1720",
+          "AY1810",
+          "AY1820",
+          "AY1910",
+          "AY1920"
+        ],
+        "data": [3, 2.5, 2, 2, 3, 3.5, 2.8, 2, 2, 3]
       }
     }
   },

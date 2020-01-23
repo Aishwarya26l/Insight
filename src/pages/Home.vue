@@ -68,7 +68,7 @@
             </div>
           </b-container>
         </div>
-        <div class="chartDisplay" :class="{ active: this.chartActive }">
+        <div class="chartDisplay" :class="{ active: chartActive }">
           <b-container fluid>
             <component
               v-bind:is="currentView"
@@ -136,6 +136,7 @@ export default {
     },
     onSuggestClick: function(suggest) {
       this.selectedItem = suggest;
+      this.selectedItem.type = this.activeItem;
     },
     searchSelected: function() {
       if (this.selectedItem) {

@@ -4,7 +4,7 @@
       <b-row>
         <b-col
           ><h4 class="categoryHeader">
-            Course - {{ selectedItem.id }} : {{ selectedItem.name }}
+            {{ textToDisplay }}
           </h4></b-col
         >
       </b-row>
@@ -26,7 +26,7 @@
       <b-row class="chartLayout">
         <b-col
           ><b-card
-            ><highcharts :options="scoreChartOptions"></highcharts></b-card
+            ><highcharts :options="feedBackChartOption"></highcharts></b-card
         ></b-col>
         <b-col
           ><b-card
@@ -46,16 +46,73 @@ export default {
   props: ["selectedItem"],
   watch: {
     selectedItem: function(newSelectedItem) {
-      this.scoreChartOptions.series =
-        dashboard.course[newSelectedItem.id].score.value;
-      this.scoreChartOptions.xAxis.categories =
-        dashboard.course[newSelectedItem.id].score.category;
-      this.genderChartOptions.series[0].data =
-        dashboard.course[newSelectedItem.id].gender;
+      if (newSelectedItem && newSelectedItem.type === "course") {
+        // Update dashboard item
+        let dashboardItem = dashboard[newSelectedItem.type][newSelectedItem.id];
+
+        // Update score chart
+        this.scoreChartOptions.series = dashboardItem.score.value;
+        this.scoreChartOptions.xAxis.categories = dashboardItem.score.acadYear;
+
+        // Update gender chart
+        this.genderChartOptions.title.text = dashboardItem.gender.name;
+        this.genderChartOptions.series[0].data = dashboardItem.gender.data;
+
+        // Update feedback chart
+        this.feedBackChartOption.xAxis.categories =
+          dashboardItem.courseFeedback.acadYear;
+        this.feedBackChartOption.series[0].data =
+          dashboardItem.courseFeedback.data;
+      }
     }
   },
   data() {
     return {
+      textToDisplay:
+        "Course - " + this.selectedItem.id + " : " + this.selectedItem.name,
+      feedBackChartOption: {
+        chart: {
+          height: 300,
+          type: "line",
+          events: {
+            redraw: function() {}
+          }
+        },
+        title: {
+          text: "Course Feedback over the years"
+        },
+        xAxis: {
+          title: {
+            text: "Academic year"
+          },
+          categories:
+            dashboard[this.selectedItem.type][this.selectedItem.id]
+              .courseFeedback.acadYear
+        },
+        yAxis: {
+          title: {
+            text: "Feedback score"
+          }
+        },
+        plotOptions: {
+          area: {
+            dataLabels: {
+              enabled: false
+            }
+          }
+        },
+        credits: {
+          enabled: false
+        },
+        series: [
+          {
+            name: "Feedback",
+            data:
+              dashboard[this.selectedItem.type][this.selectedItem.id]
+                .courseFeedback.data
+          }
+        ]
+      },
       scoreChartOptions: {
         chart: {
           height: 300,
@@ -69,9 +126,11 @@ export default {
         },
         xAxis: {
           title: {
-            text: "Academic semester"
+            text: "Academic year"
           },
-          categories: dashboard.course[this.selectedItem.id].score.category
+          categories:
+            dashboard[this.selectedItem.type][this.selectedItem.id].score
+              .acadYear
         },
         yAxis: {
           title: {
@@ -88,7 +147,8 @@ export default {
         credits: {
           enabled: false
         },
-        series: dashboard.course[this.selectedItem.id].score.value
+        series:
+          dashboard[this.selectedItem.type][this.selectedItem.id].score.value
       },
       genderChartOptions: {
         chart: {
@@ -99,10 +159,11 @@ export default {
           }
         },
         title: {
-          text: "Class demographic"
+          text:
+            dashboard[this.selectedItem.type][this.selectedItem.id].gender.name
         },
         tooltip: {
-          pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+          pointFormat: "{series.name}: <b>{point.y}</b>"
         },
         accessibility: {
           point: {
@@ -113,9 +174,10 @@ export default {
           pie: {
             allowPointSelect: true,
             cursor: "pointer",
+            showInLegend: true,
             dataLabels: {
               enabled: true,
-              format: "<b>{point.name}</b>: {point.percentage:.1f} %"
+              format: "<b>{point.name}</b>: {point.y}"
             }
           }
         },
@@ -123,7 +185,9 @@ export default {
           {
             name: "Gender",
             colorByPoint: true,
-            data: dashboard.course[this.selectedItem.id].gender
+            data:
+              dashboard[this.selectedItem.type][this.selectedItem.id].gender
+                .data
           }
         ],
         credits: {
