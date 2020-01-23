@@ -9,24 +9,28 @@
         >
       </b-row>
       <b-row class="chartLayout">
-        <b-col
-          ><b-card
-            ><highcharts :options="genderChartOptions"></highcharts></b-card
+        <b-col>
+          <b-card>
+            <highcharts
+              class="chart"
+              ref="chart"
+              :options="genderChartOptions"
+            ></highcharts></b-card
         ></b-col>
         <b-col
-          ><b-card
-            ><highcharts :options="scoreChartOptions"></highcharts
-          ></b-card>
+          ><b-card>
+            <highcharts :options="scoreChartOptions"></highcharts>
+          </b-card>
         </b-col>
       </b-row>
       <b-row class="chartLayout">
         <b-col
           ><b-card
-            ><highcharts :options="scoreLineChartOptions"></highcharts></b-card
+            ><highcharts :options="scoreChartOptions"></highcharts></b-card
         ></b-col>
         <b-col
           ><b-card
-            ><highcharts :options="scoreColumnChartOptions"></highcharts
+            ><highcharts :options="scoreChartOptions"></highcharts
           ></b-card>
         </b-col>
       </b-row>
@@ -40,90 +44,25 @@ import dashboard from "@/data/dashboard.json";
 export default {
   name: "CourseCharts", //this is the name of the component
   props: ["selectedItem"],
+  watch: {
+    selectedItem: function(newSelectedItem) {
+      this.scoreChartOptions.series =
+        dashboard.course[newSelectedItem.id].score.value;
+      this.scoreChartOptions.xAxis.categories =
+        dashboard.course[newSelectedItem.id].score.category;
+      this.genderChartOptions.series[0].data =
+        dashboard.course[newSelectedItem.id].gender;
+    }
+  },
   data() {
     return {
-      barChartOptions: {
-        chart: {
-          height: 300,
-          type: "bar"
-        },
-        title: { text: "Sample bar chart" },
-        series: [
-          {
-            data: [1, 2, 3] // sample data
-          }
-        ],
-        credits: {
-          enabled: false
-        }
-      },
-      scoreLineChartOptions: {
-        chart: {
-          height: 300,
-          type: "line"
-        },
-        title: {
-          text: "Final score over the years"
-        },
-        xAxis: {
-          title: {
-            text: "Academic semester"
-          },
-          categories: dashboard.course[this.selectedItem.id].score.category
-        },
-        yAxis: {
-          title: {
-            text: "Score"
-          }
-        },
-        plotOptions: {
-          line: {
-            dataLabels: {
-              enabled: true
-            }
-          }
-        },
-        credits: {
-          enabled: false
-        },
-        series: dashboard.course[this.selectedItem.id].score.value
-      },
-      scoreColumnChartOptions: {
-        chart: {
-          height: 300,
-          type: "column"
-        },
-        title: {
-          text: "Final score over the years"
-        },
-        xAxis: {
-          title: {
-            text: "Academic semester"
-          },
-          categories: dashboard.course[this.selectedItem.id].score.category
-        },
-        yAxis: {
-          title: {
-            text: "Score"
-          }
-        },
-        plotOptions: {
-          column: {
-            stacking: "normal",
-            dataLabels: {
-              enabled: true
-            }
-          }
-        },
-        credits: {
-          enabled: false
-        },
-        series: dashboard.course[this.selectedItem.id].score.value
-      },
       scoreChartOptions: {
         chart: {
           height: 300,
-          type: "area"
+          type: "area",
+          events: {
+            redraw: function() {}
+          }
         },
         title: {
           text: "Final score over the years"
@@ -154,7 +93,10 @@ export default {
       genderChartOptions: {
         chart: {
           height: 300,
-          type: "pie"
+          type: "pie",
+          events: {
+            redraw: function() {}
+          }
         },
         title: {
           text: "Class demographic"
